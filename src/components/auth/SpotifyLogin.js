@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import { withRouter } from "react-router-dom";
-import { useState } from "react";
+// import React, { useRef } from "react";
+// import { withRouter } from "react-router-dom";
+// import { useState } from "react";
 
 // const clientId = "5e04fc11444f46659968cb9a0094e811";
 // const redirectUri = "localhost:3000";
@@ -32,7 +32,7 @@ const getAccessToken = () => {
     // setIsConnected(true);
     return accessToken;
   } else {
-    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=user-top-read`;
+    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=user-top-read%20user-read-private%20user-read-email`;
     console.log("accessUrl", accessUrl);
     window.location = accessUrl;
   }
