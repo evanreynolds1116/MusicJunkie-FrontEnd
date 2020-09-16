@@ -34,11 +34,12 @@ const TopArtistsList = (props) => {
         <h2>4 Weeks</h2>
         <p>
           {shortTermArtists.map((object) => (
-            <li>
+            <li key={object.id}>
               <img
                 src={object.images[0].url}
                 width="100px"
                 height="100px"
+                alt="artist"
               ></img>
               {object.name}
               <a href={object.external_urls.spotify}>Listen Here</a>
@@ -50,11 +51,12 @@ const TopArtistsList = (props) => {
         <h2>6 months</h2>
         <p>
           {mediumTermArtists.map((object) => (
-            <li>
+            <li key={object.id}>
               <img
                 src={object.images[0].url}
                 width="100px"
                 height="100px"
+                alt="artist"
               ></img>
               {object.name}
               <a href={object.external_urls.spotify}>Listen Here</a>
@@ -66,11 +68,12 @@ const TopArtistsList = (props) => {
         <h2>2-3 years</h2>
         <p>
           {longTermArtists.map((object) => (
-            <li>
+            <li key={object.id}>
               <img
                 src={object.images[0].url}
                 width="100px"
                 height="100px"
+                alt="artist"
               ></img>
               {object.name}
               <a href={object.external_urls.spotify}>Listen Here</a>
