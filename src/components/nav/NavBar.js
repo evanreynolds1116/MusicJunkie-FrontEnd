@@ -33,63 +33,6 @@ const NavBar = (props) => {
           <h1>MUSIC APP</h1>
         </header>
       </div>
-      {/* <nav>
-        <ul>
-          <img
-          className="logobang"
-          src={require("../../Bangazon.png")}
-          alt="logo"
-        />
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/top-songs">Top Songs</Link>
-          </li>
-          <li>
-            <Link to="/top-artists">Top Artists</Link>
-          </li>
-          <li>
-            <Link to="/favorite-albums">Favorite Albums</Link>
-          </li>
-          <li>
-            <Link to="/music-recommendations">Music Recommendation</Link>
-          </li>
-          {isAuthenticated() ? (
-            <li className="nav-item">
-              <button
-                className="nav-link fakeLink"
-                onClick={() => {
-                  logout();
-                  props.history.push({
-                    pathname: "/",
-                  });
-                }}
-              >
-                Logout
-              </button>
-            </li>
-          ) : (
-            <>
-              <li>
-                <button onClickCapture={getAccessToken}>
-                  Connect Spotify Account
-                </button>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Register
-                </Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </nav> */}
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">reactstrap</NavbarBrand>
@@ -109,9 +52,7 @@ const NavBar = (props) => {
                 <NavLink href="/favorite-albums">Favorite Albums</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/music-recommendations">
-                  Song Recommendation
-                </NavLink>
+                <NavLink href="/music-recommendation">Song Recommendation</NavLink>
               </NavItem>
               {isAuthenticated() ? (
                 <NavItem>
@@ -140,7 +81,6 @@ const NavBar = (props) => {
                 </>
               )}
             </Nav>
-            
           </Collapse>
         </Navbar>
       </div>

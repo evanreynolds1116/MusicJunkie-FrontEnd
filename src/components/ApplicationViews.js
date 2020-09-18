@@ -7,7 +7,8 @@ import TopArtistsList from "./TopArtists/TopArtistsList";
 import TopSongsList from "./TopSongs/TopSongsList";
 import FavoriteAlbumsList from "./FavoriteAlbums/FavoriteAlbumsList"
 import AlbumForm from "./FavoriteAlbums/AlbumForm"
-import { Form } from "reactstrap";
+// import { Form } from "reactstrap";
+import SongRecommendation from "./recommendations/SongRecommendation";
 
 const ApplicationViews = () => {
   return (
@@ -43,7 +44,7 @@ const ApplicationViews = () => {
       <Route
         path="/favorite-albums"
         render={(props) => {
-            return <FavoriteAlbumsList {...props} />;
+            return <FavoriteAlbumsList albumId={parseInt(props.match.params.albumId)} {...props} />;
         }}
       />
 
@@ -51,6 +52,12 @@ const ApplicationViews = () => {
         path="/new-album"
         render={(props) => {
             return <AlbumForm {...props} />;
+        }}/>
+
+      <Route
+        path="/music-recommendation"
+        render={(props) => {
+            return <SongRecommendation {...props} />;
         }}/>
 
     </>
