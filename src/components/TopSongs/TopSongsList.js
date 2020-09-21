@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TopSongsFetch from "./TopSongsFetch";
-import { Button, Table } from "reactstrap";
+import { Table } from "reactstrap";
 
 const TopSongsList = (props) => {
   const [shortTermSongs, setShortTermSongs] = useState([]);
@@ -83,6 +83,7 @@ const TopSongsList = (props) => {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="Spotify"
                    ></iframe>
                 </td>
               </tr>
@@ -123,6 +124,7 @@ const TopSongsList = (props) => {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="Spotify"
                    ></iframe>
                 </td>
               </tr>
@@ -163,6 +165,7 @@ const TopSongsList = (props) => {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="Spotify"
                    ></iframe>
                 </td>
               </tr>

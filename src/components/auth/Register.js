@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { withRouter } from "react-router-dom";
 import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
 // import "./Login.css";
-import getAccessToken from "../auth/SpotifyLogin";
+// import getAccessToken from "../auth/SpotifyLogin";
 
 const Register = (props) => {
 	const email = useRef();

@@ -35,7 +35,7 @@ const Home = (props) => {
     grabSpotifyUser();
   }, []);
 
-  console.log(recentTracks.map((recentTrack) => recentTrack.track.id));
+  //   console.log(recentTracks.map((recentTrack) => recentTrack.track.id));
 
   return (
     <>
@@ -57,16 +57,18 @@ const Home = (props) => {
           </Button>
         </div>
         <div>
-            <p><strong>Top Rated Album</strong></p>
-            <img
-                src={userAlbums.album_image}
-                width="100px"
-                height="100px"
-                alt="album"
-            />
-            <p>Artist: {userAlbums.album_artist}</p>
-            <p>Album: {userAlbums.album_name}</p>
-            <p>Rating: {userAlbums.album_rating}/10</p>
+          <p>
+            <strong>Top Rated Album</strong>
+          </p>
+          <img
+            src={userAlbums.album_image}
+            width="100px"
+            height="100px"
+            alt="album"
+          />
+          <p>Artist: {userAlbums.album_artist}</p>
+          <p>Album: {userAlbums.album_name}</p>
+          <p>Rating: {userAlbums.album_rating}/10</p>
         </div>
       </div>
       <div>
@@ -81,6 +83,7 @@ const Home = (props) => {
             frameborder="0"
             allowtransparency="true"
             allow="encrypted-media"
+            title="Spotify"
           ></iframe>
         ))}
       </div>

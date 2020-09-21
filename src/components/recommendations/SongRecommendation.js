@@ -4,45 +4,43 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
   Form,
   FormGroup,
   Label,
   Input,
-  FormText,
   Table,
 } from "reactstrap";
 import RecommendationManager from "../../modules/RecommendationManager";
 
 const SongRecommendation = (props) => {
-  const [searchedArtist, setSearchedArtist] = useState([]);
-  const [artistResults, setArtistResults] = useState([]);
+//   const [searchedArtist, setSearchedArtist] = useState([]);
+//   const [artistResults, setArtistResults] = useState([]);
 
   // handles artist that is typed into the search bar
-  const handleFieldChangeArtist = (evt) => {
-    const stateToChange = { ...searchedArtist };
-    stateToChange[evt.target.id] = evt.target.value;
-    setSearchedArtist(stateToChange);
-  };
+//   const handleFieldChangeArtist = (evt) => {
+//     const stateToChange = { ...searchedArtist };
+//     stateToChange[evt.target.id] = evt.target.value;
+//     setSearchedArtist(stateToChange);
+//   };
 
   // searches Spotify API for artist that was typed into the search bar and opens modal with results
-  const getSearchedArtists = () => {
-    RecommendationManager.searchArtists(searchedArtist.searchArtists).then(
-      (artistsFromAPI) => {
-        const allArtists = artistsFromAPI.artists;
-        const finalResults = allArtists.items;
-        setArtistResults(finalResults);
-        toggleArtist();
-      }
-    );
-  };
+//   const getSearchedArtists = () => {
+//     RecommendationManager.searchArtists(searchedArtist.searchArtists).then(
+//       (artistsFromAPI) => {
+//         const allArtists = artistsFromAPI.artists;
+//         const finalResults = allArtists.items;
+//         setArtistResults(finalResults);
+//         toggleArtist();
+//       }
+//     );
+//   };
 
-  const [artist, setArtist] = useState([]);
+//   const [artist, setArtist] = useState([]);
   // grabs selected artist from search results and saves the name and id for later use in song recommendation fetch
-  const grabArtist = (object) => {
-    const newArtist = artist.concat({ name: object.name, id: object.id });
-    setArtist(newArtist);
-  };
+//   const grabArtist = (object) => {
+//     const newArtist = artist.concat({ name: object.name, id: object.id });
+//     setArtist(newArtist);
+//   };
 
   const [searchedSong, setSearchedSong] = useState([]);
   const [songResults, setSongResults] = useState([]);
@@ -80,10 +78,10 @@ const SongRecommendation = (props) => {
   };
 
   // modal stuff
-  const [modalArtist, setModalArtist] = useState(false);
+//   const [modalArtist, setModalArtist] = useState(false);
   const [modalSong, setModalSong] = useState(false);
 
-  const toggleArtist = () => setModalArtist(!modalArtist);
+//   const toggleArtist = () => setModalArtist(!modalArtist);
   const toggleSong = () => setModalSong(!modalSong);
   //
 

@@ -9,7 +9,6 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
   Table,
 } from "reactstrap";
 import AlbumManager from "../../modules/AlbumManager";
