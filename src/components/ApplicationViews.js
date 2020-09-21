@@ -9,6 +9,8 @@ import FavoriteAlbumsList from "./FavoriteAlbums/FavoriteAlbumsList"
 import AlbumForm from "./FavoriteAlbums/AlbumForm"
 // import { Form } from "reactstrap";
 import SongRecommendation from "./recommendations/SongRecommendation";
+import SpotifyConnect from "./spotify/SpotifyConnect"
+import Home from "./home/Home";
 
 const ApplicationViews = () => {
   return (
@@ -26,6 +28,20 @@ const ApplicationViews = () => {
           return <Login {...props} />;
         }}
       />
+
+      <Route
+        path="/spotify-connect"
+        render={(props) => {
+            return <SpotifyConnect {...props} />
+        }}
+        />
+
+    <Route
+        exact path="/home"
+        render={(props) => {
+            return <Home {...props} />
+        }}
+        />
 
       <Route
         path="/top-artists"

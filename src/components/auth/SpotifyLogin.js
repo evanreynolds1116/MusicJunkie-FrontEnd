@@ -7,7 +7,7 @@
 
 const getAccessToken = () => {
   const clientId = "5e04fc11444f46659968cb9a0094e811";
-  const redirectUri = "http://localhost:3000";
+  const redirectUri = "http://localhost:3000/spotify-connect";
   let accessToken;
 
   console.log("get our access token");
@@ -19,6 +19,7 @@ const getAccessToken = () => {
 
   const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
   const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+  localStorage.setItem("SpotifyAccessToken", accessTokenMatch);
   if (accessTokenMatch && expiresInMatch) {
     accessToken = accessTokenMatch[1];
     localStorage.setItem("SpotifyAccessToken", accessToken);
@@ -33,10 +34,12 @@ const getAccessToken = () => {
     // setIsConnected(true);
     return accessToken;
   } else {
-    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=user-top-read%20user-read-private%20user-read-email`;
+    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=user-top-read%20user-read-private%20user-read-email%20user-read-recently-played`;
     console.log("accessUrl", accessUrl);
     window.location = accessUrl;
-  }
+    localStorage.setItem("SpotifyAccessToken", window.location);
+    }
+    localStorage.setItem("SpotifyAccessToken", accessToken);
 };
 
 export default getAccessToken;

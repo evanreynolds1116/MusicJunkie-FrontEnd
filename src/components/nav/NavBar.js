@@ -39,32 +39,36 @@ const NavBar = (props) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/top-songs">Top Songs</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/top-artists">Top Artists</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/favorite-albums">Favorite Albums</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/music-recommendation">Song Recommendation</NavLink>
-              </NavItem>
               {isAuthenticated() ? (
-                <NavItem>
-                  <NavLink
-                    onClick={() => {
-                      logout();
-                      props.history.push({ pathname: "/" });
-                    }}
-                  >
-                    Logout
-                  </NavLink>
-                </NavItem>
+                <>
+                  <NavItem>
+                    <NavLink href="/home">Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/top-songs">Top Songs</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/top-artists">Top Artists</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/favorite-albums">Favorite Albums</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/music-recommendation">
+                      Song Recommendation
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      onClick={() => {
+                        logout();
+                        props.history.push({ pathname: "/" });
+                      }}
+                    >
+                      Logout
+                    </NavLink>
+                  </NavItem>
+                </>
               ) : (
                 <>
                   <NavItem>
