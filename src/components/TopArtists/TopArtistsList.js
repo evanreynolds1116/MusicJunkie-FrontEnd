@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TopArtistsFetch from "./TopArtistsFetch";
-import { Button, Table } from "reactstrap";
+import { Table } from "reactstrap";
 
 const TopArtistsList = (props) => {
   const [shortTermArtists, setShortTermArtists] = useState([]);
@@ -62,6 +62,7 @@ const TopArtistsList = (props) => {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="Spotify"
                    ></iframe>
                 </td>
               </tr>
@@ -100,6 +101,7 @@ const TopArtistsList = (props) => {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="Spotify"
                    ></iframe>
                 </td>
               </tr>
@@ -138,6 +140,7 @@ const TopArtistsList = (props) => {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="Spotify"
                    ></iframe>
                 </td>
               </tr>

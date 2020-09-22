@@ -21,47 +21,45 @@ const Register = (props) => {
 			username: userName.current.value,
 			email: email.current.value,
             password: password.current.value,
-            display_name: displayName.current.value,
-            spotify_id: spotifyId.current.value,
-            profile_picture: profilePicture.current.value
 		};
 
 		register(newUser).then(() => {
-			props.history.push({
-				pathname: "/",
-			});
+            getAccessToken();
+			// props.history.push({
+			// 	pathname: "/",
+			// });
 		});
     };
 
-    const spotifyUserFetch = () => {
-        return fetch("https://api.spotify.com/v1/me", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-                Authorization: `Bearer ${localStorage.getItem("SpotifyAccessToken")}`
-            }
-        }).then((response) => response.json());
-    };
+    // const spotifyUserFetch = () => {
+    //     return fetch("https://api.spotify.com/v1/me", {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             Accept: "application/json",
+    //             Authorization: `Bearer ${localStorage.getItem("SpotifyAccessToken")}`
+    //         }
+    //     }).then((response) => response.json());
+    // };
     
-    const getSpotifyUser = (e) => {
-        e.preventDefault();
+    // const getSpotifyUser = (e) => {
+    //     e.preventDefault();
 
-        spotifyUserFetch().then((object) => {
-            console.log(object)
-            const spotifyUserToAdd = { ...userSpotify}
-            spotifyUserToAdd["display_name"] = object.display_name;
-            spotifyUserToAdd["spotify_id"] = object.id;
-            spotifyUserToAdd["profile_picture"] = object.images[0].url 
-            setUserSpotify(spotifyUserToAdd)
-        })
-    }
+    //     spotifyUserFetch().then((object) => {
+    //         console.log(object)
+    //         const spotifyUserToAdd = { ...userSpotify}
+    //         spotifyUserToAdd["display_name"] = object.display_name;
+    //         spotifyUserToAdd["spotify_id"] = object.id;
+    //         spotifyUserToAdd["profile_picture"] = object.images[0].url 
+    //         setUserSpotify(spotifyUserToAdd)
+    //     })
+    // }
 
-    const [userSpotify, setUserSpotify] = useState({
-        display_name: "",
-        spotify_id: "",
-        profile_picture: ""
-    })
+    // const [userSpotify, setUserSpotify] = useState({
+    //     display_name: "",
+    //     spotify_id: "",
+    //     profile_picture: ""
+    // })
 
     // const handleSpotifyUser = (object) => {
     //     const spotifyUserToAdd = { ...userSpotify }
@@ -117,7 +115,7 @@ const Register = (props) => {
 						required
 					/>
 				</fieldset>
-                <fieldset>
+                {/* <fieldset>
                     <button onClickCapture={getSpotifyUser}>Connect To Spotify</button>
                 </fieldset>
                 <fieldset>
@@ -153,7 +151,7 @@ const Register = (props) => {
                         readOnly
                     ></input>
                     <img src={userSpotify.profile_picture} width="100px" height="100px" alt="profile pic" />
-                </fieldset>
+                </fieldset> */}
 				<fieldset>
 					<button type="submit">Sign in</button>
 				</fieldset>

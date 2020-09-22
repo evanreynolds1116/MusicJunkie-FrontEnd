@@ -9,25 +9,15 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
   Table,
 } from "reactstrap";
+import AlbumManager from "../../modules/AlbumManager";
 
 const FavoriteAlbumsList = (props) => {
   const [albums, setAlbums] = useState([]);
 
-  const fetchAlbums = () => {
-    return fetch(`http://localhost:8000/albums`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Token ${localStorage.getItem("music_token")}`,
-      },
-    }).then((response) => response.json());
-  };
-
   const getAlbums = () => {
-    fetchAlbums().then((albumsFromAPI) => {
+    AlbumManager.fetchAlbums().then((albumsFromAPI) => {
       // sorts albums by rating(highest rating to lowest rating)
       albumsFromAPI.sort(function (a, b) {
         return b.album_rating - a.album_rating;
@@ -40,17 +30,8 @@ const FavoriteAlbumsList = (props) => {
     getAlbums();
   }, []);
 
-  const deleteAlbum = (id) => {
-    return fetch(`http://localhost:8000/albums/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Token ${localStorage.getItem("music_token")}`,
-      },
-    });
-  };
-
   const handleDelete = (id) => {
-    deleteAlbum(id).then(() => {
+    AlbumManager.deleteAlbum(id).then(() => {
       getAlbums();
       props.history.push("/favorite-albums");
     });
@@ -60,26 +41,15 @@ const FavoriteAlbumsList = (props) => {
 
   const toggle = () => setModal(!modal);
 
-  const updateAlbum = (id) => {
-    return fetch(`http://localhost:8000/albums/${id}`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("music_token")}`,
-      },
-      body: JSON.stringify(id),
-    }).then((data) => data.json());
+  const handleUpdate = () => {
+    
+    AlbumManager.editAlbum(editedAlbum).then(() => {
+        getAlbums();
+        toggle();
+    })
   };
 
-  const handleUpdate = (id) => {
-    updateAlbum(id).then(() => {
-      getAlbums();
-      props.history.push("/favorite-albums");
-    });
-  };
-
-  const [album, setAlbum] = useState({
+  const [editedAlbum, setEditedAlbum] = useState({
     id: "",
     album_name: "",
     album_artist: "",
@@ -89,22 +59,24 @@ const FavoriteAlbumsList = (props) => {
   });
 
   const handleSelection = (object) => {
-    const albumToUpdate = { ...album };
+      console.log(object)
+    const albumToUpdate = { ...editedAlbum };
     albumToUpdate["id"] = object.id;
     albumToUpdate["album_name"] = object.album_name;
     albumToUpdate["album_artist"] = object.album_artist;
     albumToUpdate["album_image"] = object.album_image;
     albumToUpdate["album_rating"] = object.album_rating;
     albumToUpdate["user_id"] = object.user_id;
-    setAlbum(albumToUpdate);
+    setEditedAlbum(albumToUpdate);
     toggle();
   };
 
   const handleRatingChange = (evt) => {
-    const stateToChange = { ...album };
+    const stateToChange = { ...editedAlbum };
     stateToChange[evt.target.id] = evt.target.value;
-    setAlbum(stateToChange);
+    setEditedAlbum(stateToChange);
   };
+
 
   return (
     <>
@@ -155,8 +127,10 @@ const FavoriteAlbumsList = (props) => {
                     Delete
                   </Button>
                 </td>
+              </tr>
+            ))}
                 <Modal isOpen={modal} toggle={toggle}>
-                  <ModalHeader toggle={toggle}>Add Album</ModalHeader>
+                  <ModalHeader toggle={toggle}>Edit Rating for: {editedAlbum.album_name}</ModalHeader>
                   <ModalBody>
                     <Form>
                       <FormGroup>
@@ -164,7 +138,7 @@ const FavoriteAlbumsList = (props) => {
                         <Input
                           type="text"
                           id="album_name"
-                          value={album.album_name}
+                          value={editedAlbum.album_name}
                           name="album_name"
                           readOnly
                         ></Input>
@@ -174,7 +148,7 @@ const FavoriteAlbumsList = (props) => {
                         <Input
                           type="text"
                           id="album_artist"
-                          value={album.album_artist}
+                          value={editedAlbum.album_artist}
                           name="album_artist"
                           readOnly
                         ></Input>
@@ -184,7 +158,7 @@ const FavoriteAlbumsList = (props) => {
                         <Input
                           type="text"
                           id="album_image"
-                          value={album.album_image}
+                          value={editedAlbum.album_image}
                           name="album_image"
                           readOnly
                         ></Input>
@@ -193,22 +167,20 @@ const FavoriteAlbumsList = (props) => {
                         <Label htmlFor="album_rating">Rating</Label>
                         <Input
                           type="number"
+                          min="1"
+                          max="10"
                           id="album_rating"
                           name="album_rating"
-                          defaultValue={album.album_rating}
+                          defaultValue={editedAlbum.album_rating}
                           onChange={handleRatingChange}
                         ></Input>
                       </FormGroup>
                     </Form>
                   </ModalBody>
                   <ModalFooter>
-                    <Button onClick={() => handleUpdate(album.id)}>
-                      + Add
-                    </Button>
+                    <Button onClick={() => handleUpdate(editedAlbum)}>+ Add</Button>
                   </ModalFooter>
                 </Modal>
-              </tr>
-            ))}
           </tbody>
         </Table>
       </div>

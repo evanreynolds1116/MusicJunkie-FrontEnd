@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css"
 import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
 // import "./Nav.css";
-import getAccessToken from "../auth/SpotifyLogin";
+// import getAccessToken from "../auth/SpotifyLogin";
 import {
   Collapse,
   Navbar,
@@ -12,11 +12,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
 } from "reactstrap";
 
 const NavBar = (props) => {
@@ -39,39 +34,85 @@ const NavBar = (props) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/top-songs">Top Songs</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/top-artists">Top Artists</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/favorite-albums">Favorite Albums</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/music-recommendation">Song Recommendation</NavLink>
-              </NavItem>
-              {isAuthenticated() ? (
+              {/* {localStorage.getItem("SpotifyAccessToken") == "" ? (
                 <NavItem>
-                  <NavLink
-                    onClick={() => {
-                      logout();
-                      props.history.push({ pathname: "/" });
-                    }}
-                  >
-                    Logout
-                  </NavLink>
-                </NavItem>
+                    <NavLink onClick={getAccessToken}>
+                      Connect Spotify Account
+                    </NavLink>
+                  </NavItem>
               ) : (
                 <>
+                  <NavItem>
+                    <NavLink href="/home">Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/top-songs">Top Songs</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/top-artists">Top Artists</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/favorite-albums">Favorite Albums</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/music-recommendation">
+                      Song Recommendation
+                    </NavLink>
+                  </NavItem>
                   <NavItem>
                     <NavLink onClick={getAccessToken}>
                       Connect Spotify Account
                     </NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink
+                      onClick={() => {
+                        logout();
+                        props.history.push({ pathname: "/" });
+                      }}
+                    >
+                      Logout
+                    </NavLink>
+                  </NavItem>
+                </>
+              )} */}
+              {isAuthenticated() ? (
+                <>
+                  <NavItem>
+                    <NavLink href="/home">Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/top-songs">Top Songs</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/top-artists">Top Artists</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/favorite-albums">Favorite Albums</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/music-recommendation">
+                      Song Recommendation
+                    </NavLink>
+                  </NavItem>
+                  {/* <NavItem>
+                    <NavLink onClick={getAccessToken}>
+                      Connect Spotify Account
+                    </NavLink>
+                  </NavItem> */}
+                  {/* <NavItem>
+                    <NavLink
+                      onClick={() => {
+                        logout();
+                        props.history.push({ pathname: "/" });
+                      }}
+                    >
+                      Logout
+                    </NavLink>
+                  </NavItem> */}
+                </>
+              ) : (
+                <>
                   <NavItem>
                     <NavLink href="/login">Login</NavLink>
                   </NavItem>
@@ -81,6 +122,20 @@ const NavBar = (props) => {
                 </>
               )}
             </Nav>
+
+            {isAuthenticated() ? (
+              <NavLink
+                href="/"
+                onClick={() => {
+                  logout();
+                  props.history.push({ pathname: "/" });
+                }}
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <p></p>
+            )}
           </Collapse>
         </Navbar>
       </div>
