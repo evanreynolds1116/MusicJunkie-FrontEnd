@@ -24,7 +24,7 @@ const getAccessToken = () => {
 
     return accessToken;
   } else {
-    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&show_dialog=true&scope=user-top-read%20user-read-private%20user-read-email%20user-read-recently-played`;
+    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&show_dialog=true&scope=user-top-read%20user-read-private%20user-read-email%20user-read-recently-played%20playlist-modify-public%20playlist-modify-private`;
     window.location = accessUrl;
     }
 
