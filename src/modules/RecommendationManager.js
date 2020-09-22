@@ -38,4 +38,34 @@ export default {
       }
     ).then((response) => response.json());
   },
+  createPlaylist(id, playlist, setNewPlaylistId) {
+      return fetch(`https://api.spotify.com/v1/users/${id}/playlists`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${localStorage.getItem("SpotifyAccessToken")}`,
+          },
+          body: JSON.stringify(playlist)
+      })
+      .then(response => response.json())
+      .then(result => {
+          return result
+      })
+      .then(result => setNewPlaylistId(result))
+      .catch(error => console.log('error', error));
+  },
+  addItemsToPlaylist(playlistId, URIS, setCreatedPlaylist) {
+      return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?uris=${URIS}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("SpotifyAccessToken")}`,
+        },
+      })
+      .then(response => response.json())
+      .then(result => setCreatedPlaylist(result))
+      .catch(error => console.log('error', error));
+  }
 };
