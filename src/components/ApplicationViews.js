@@ -13,7 +13,7 @@ import SpotifyConnect from "./spotify/SpotifyConnect";
 import Home from "./home/Home";
 
 const isSpotifyConnected = () =>
-  localStorage.getItem("SpotifyAccessToken") !== null;
+  localStorage.getItem("SpotifyAccessToken") !== undefined || null ;
 
 const ApplicationViews = () => {
   return (

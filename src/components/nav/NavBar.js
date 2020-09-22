@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import "bootstrap/dist/css/bootstrap.min.css"
 import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
 // import "./Nav.css";
-import getAccessToken from "../auth/SpotifyLogin";
+// import getAccessToken from "../auth/SpotifyLogin";
 import {
   Collapse,
   Navbar,
@@ -134,7 +134,7 @@ const NavBar = (props) => {
                 Logout
               </NavLink>
             ) : (
-              <NavItem></NavItem>
+              <p></p>
             )}
           </Collapse>
         </Navbar>

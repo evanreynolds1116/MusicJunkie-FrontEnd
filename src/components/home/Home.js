@@ -4,8 +4,6 @@ import AlbumManager from "../../modules/AlbumManager";
 import { Button } from "reactstrap";
 
 const Home = (props) => {
-  console.log(HomeManager.getSpotifyUser());
-
   const [spotifyUser, setSpotifyUser] = useState([]);
   const [recentTracks, setRecentTracks] = useState([]);
   const [userAlbums, setUserAlbums] = useState([]);
@@ -35,8 +33,6 @@ const Home = (props) => {
     grabSpotifyUser();
   }, []);
 
-  //   console.log(recentTracks.map((recentTrack) => recentTrack.track.id));
-
   return (
     <>
       <div>
@@ -56,20 +52,24 @@ const Home = (props) => {
             <a href={spotifyUser.spotify_account_link}>View Spotify Account</a>
           </Button>
         </div>
-        <div>
-          <p>
-            <strong>Top Rated Album</strong>
-          </p>
-          <img
-            src={userAlbums.album_image}
-            width="100px"
-            height="100px"
-            alt="album"
-          />
-          <p>Artist: {userAlbums.album_artist}</p>
-          <p>Album: {userAlbums.album_name}</p>
-          <p>Rating: {userAlbums.album_rating}/10</p>
-        </div>
+        {userAlbums ? (
+          <div>
+            <p>
+              <strong>Top Rated Album</strong>
+            </p>
+            <img
+              src={userAlbums.album_image}
+              width="100px"
+              height="100px"
+              alt="album"
+            />
+            <p>Artist: {userAlbums.album_artist}</p>
+            <p>Album: {userAlbums.album_name}</p>
+            <p>Rating: {userAlbums.album_rating}/10</p>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
       <div>
         <p>
@@ -80,7 +80,7 @@ const Home = (props) => {
             src={`https://open.spotify.com/embed/track/${recentTrack.track.id}`}
             width="300"
             height="280"
-            frameborder="0"
+            frameBorder="0"
             allowtransparency="true"
             allow="encrypted-media"
             title="Spotify"

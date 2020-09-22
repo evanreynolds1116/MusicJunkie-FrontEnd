@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 // import "./Login.css";
 import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
-// import getAccessToken from "../auth/SpotifyLogin";
+import getAccessToken from "../auth/SpotifyLogin";
 
 const Login = (props) => {
   const username = useRef();
@@ -22,10 +22,10 @@ const Login = (props) => {
     };
 
     login(credentials).then(() => {
-    //   getAccessToken()
-      props.history.push({
-        pathname: "/spotify-connect",
-      });
+      getAccessToken()
+    //   props.history.push({
+    //     pathname: "/spotify-connect",
+    //   });
     });
   };
 

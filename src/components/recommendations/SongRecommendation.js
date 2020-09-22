@@ -13,34 +13,6 @@ import {
 import RecommendationManager from "../../modules/RecommendationManager";
 
 const SongRecommendation = (props) => {
-//   const [searchedArtist, setSearchedArtist] = useState([]);
-//   const [artistResults, setArtistResults] = useState([]);
-
-  // handles artist that is typed into the search bar
-//   const handleFieldChangeArtist = (evt) => {
-//     const stateToChange = { ...searchedArtist };
-//     stateToChange[evt.target.id] = evt.target.value;
-//     setSearchedArtist(stateToChange);
-//   };
-
-  // searches Spotify API for artist that was typed into the search bar and opens modal with results
-//   const getSearchedArtists = () => {
-//     RecommendationManager.searchArtists(searchedArtist.searchArtists).then(
-//       (artistsFromAPI) => {
-//         const allArtists = artistsFromAPI.artists;
-//         const finalResults = allArtists.items;
-//         setArtistResults(finalResults);
-//         toggleArtist();
-//       }
-//     );
-//   };
-
-//   const [artist, setArtist] = useState([]);
-  // grabs selected artist from search results and saves the name and id for later use in song recommendation fetch
-//   const grabArtist = (object) => {
-//     const newArtist = artist.concat({ name: object.name, id: object.id });
-//     setArtist(newArtist);
-//   };
 
   const [searchedSong, setSearchedSong] = useState([]);
   const [songResults, setSongResults] = useState([]);
@@ -78,10 +50,7 @@ const SongRecommendation = (props) => {
   };
 
   // modal stuff
-//   const [modalArtist, setModalArtist] = useState(false);
   const [modalSong, setModalSong] = useState(false);
-
-//   const toggleArtist = () => setModalArtist(!modalArtist);
   const toggleSong = () => setModalSong(!modalSong);
   //
 
@@ -111,43 +80,6 @@ const SongRecommendation = (props) => {
       </div>
       <div>
         <Form>
-          {/* <FormGroup>
-            <Label htmlFor="searchArtists">
-              Get song recommendations from Spotify based on artist(s)
-            </Label>
-            <Input
-              type="search"
-              id="searchArtists"
-              name="searchArtists"
-              onChange={handleFieldChangeArtist}
-            ></Input>
-            <Button onClick={getSearchedArtists}>Search</Button>
-            <Modal isOpen={modalArtist} toggle={toggleArtist}>
-              <ModalHeader toggle={toggleArtist}>Results for: {searchedArtist.searchArtists}</ModalHeader>
-              <ModalBody>
-                {artistResults.map((artist) => (
-                    <li key={artist.id}>
-                        <img
-                            src={artist.images[0].url}
-                            width="100px"
-                            height="100px"
-                            alt="artist"
-                        />
-                        {artist.name}
-                        <Button onClick={() => grabArtist(artist)}>Select Artist</Button>
-                    </li>
-                ))}
-              </ModalBody>
-              <ModalFooter>
-                <Button color="primary" onClick={toggleArtist}>
-                  Do Something
-                </Button>{" "}
-                <Button color="secondary" onClick={toggleArtist}>
-                  Cancel
-                </Button>
-              </ModalFooter>
-            </Modal>
-          </FormGroup> */}
           <FormGroup>
             <Label htmlFor="searchSongs">
               Get song recommendations from Spotify based on song(s)
@@ -208,14 +140,6 @@ const SongRecommendation = (props) => {
                   </tbody>
                 </Table>
               </ModalBody>
-              {/* <ModalFooter>
-                <Button color="primary" onClick={toggleSong}>
-                  Do Something
-                </Button>{" "}
-                <Button color="secondary" onClick={toggleSong}>
-                  Cancel
-                </Button>
-              </ModalFooter> */}
             </Modal>
           </FormGroup>
         </Form>
@@ -266,35 +190,6 @@ const SongRecommendation = (props) => {
         ) : (
           <p></p>
         )}
-        {/* {song.length > 0 ? (
-          <>
-            <ul>
-              {artist.map((object) => (
-                <li key={object.id}>
-                  Artist used for recommendations: {object.name}
-                </li>
-              ))}
-              <li>
-                Song used for recommendations:
-                {song.map((object) => (
-                  <>
-                    <p key={object.id}>
-                      {object.name} by {object.artist}
-                    </p>
-                    <Button size="sm" onClick={() => removeRecommendation(object)}>
-                      Remove
-                    </Button>
-                  </>
-                ))}
-              </li>
-            </ul>
-            <Button onClick={recommendationSearch}>
-              Get Song Recommendations
-            </Button>
-          </>
-        ) : (
-          <p></p>
-        )} */}
       </div>
       <div>
         {recommendationResults.length > 0 ? (
@@ -326,20 +221,6 @@ const SongRecommendation = (props) => {
         ) : (
           <p></p>
         )}
-
-        {/* <ul>
-          {recommendationResults.map((object) => (
-            <li key={object.id}>
-              <img
-                src={object.album.images[0].url}
-                width="100px"
-                height="100px"
-                alt="album"
-              />
-              {object.name} by {object.artists[0].name}
-            </li>
-          ))}
-        </ul> */}
       </div>
     </>
   );
