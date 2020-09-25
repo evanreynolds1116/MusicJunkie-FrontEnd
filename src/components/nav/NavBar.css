@@ -1,0 +1,442 @@
+#header-div, #root, body {
+    background-color: rgb(24, 24, 24);
+    
+}
+
+#header-div {
+    color: white;
+}
+
+#root, body {
+    width: auto;
+    min-height: 85em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#navbar {
+    background-color: rgb(40, 40, 40);
+}
+
+#login-header {
+    color: white;
+}
+
+#login-form {
+    color: white;
+}
+
+#login-jumbotron, #register-jumbotron {
+    background-color: rgb(40, 40, 40);
+    margin: 20px 20px 20px 20px;
+    max-width: 700px;
+}
+
+hr {
+    background-color: black;
+}
+
+#login-container, #register-container {
+    /* color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    /* margin-top: 15px;
+    margin-bottom: 25px; */
+}
+
+#username, #password {
+    width: 500px;
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+
+#register-header {
+    color: white;
+}
+
+#register-form {
+    color: white;
+}
+
+#userName, #email, #passWord, #verifyPassword {
+    width: 500px;
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+
+/* START OF TOP SONGS CSS */
+
+/* header for top songs */
+#top-songs-header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+/* header for each top songs table */
+/* #top-songs-short, #top-songs-medium, #top-songs-long {
+    color: white;
+} */
+
+/* table for each top songs timeframe */
+/* #top-songs-table-short, #top-songs-table-medium, #top-songs-table-long {
+    color: white;
+} */
+
+#top-songs-short-header, #top-songs-medium-header, #top-songs-long-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 15px 15px 15px 15px;
+}
+
+#container-top-tracks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    /* max-width: 1300px; */
+}
+
+#container-top-songs {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.top-songs-timeframe {
+    color: white;
+}
+
+
+/* END OF TOP SONGS CSS */
+
+/* START OF TOP ARTISTS CSS */
+
+/* header for top artists */
+#top-artists-header {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#top-artists-short, #top-artists-medium, #top-artists-long {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 15px 15px 15px 15px;
+}
+
+#top-artists-short-header, #top-artists-medium-header, #top-artists-long-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+/* headers for each top artists table */
+/* #top-artists-short, #top-artists-medium, #top-artists-long {
+    color: white;
+} */
+
+/* table for each top artists timeframe */
+/* #top-artists-table-short, #top-artists-table-medium, #top-artists-table-long {
+    color: white;
+} */
+
+.top-artists-object {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.top-artists-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+.top-artist-timeframe-header {
+    color: white;
+}
+
+.artist-name {
+    color: white;
+}
+
+/* END OF TOP ARTISTS CSS */
+
+/* START OF FAVORITE ALBUMS CSS */
+
+/* header for favorite albums */
+#favorite-albums-header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 25px 5px;
+}
+
+/* table for favorite albums */
+#favorite-albums-table {
+    color: white;
+    max-width: 1600px;
+}
+
+#albums-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+#edit-album-modal-header, #edit-album-modal-body, #edit-album-modal-footer {
+    background-color: rgb(40, 40, 40);
+    color: white
+}
+
+/* END OF FAVORITE ALBUMS CSS */
+
+/* START OF ALBUM FORM CSS */
+
+/* header for new album */
+#new-album-header {
+    color: white;
+}
+
+#new-album-header-form-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+/* form for new album */
+#new-album-form {
+    color: white;
+}
+
+/* new album search input */
+#search {
+    width: 500px;
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+
+/* header for album search results */
+#album-results-header {
+    color: white;
+    /* min-height: 665px; */
+}
+
+/* table for album search results */
+#album-results-table {
+    color: white;
+    max-width: 1500px;
+}
+
+#album-results-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+/* modal for adding album */
+#add-album-modal-header, #add-album-modal-body, #add-album-modal-footer {
+    background-color: rgb(40, 40, 40);
+    color: white
+}
+
+/* form in add album modal */
+#album-form {
+    color: white;
+}
+
+/* inputs in form for add album modal */
+#album_name, #album_artist, #album_image, #album_rating, #album_id {
+    background-color: rgb(24, 24, 24);
+    color: grey;
+}
+
+/* input for album rating in form for add album modal */
+#album_rating {
+    color: white;
+}
+
+/* END OF ALBUM FORM CSS */
+
+/* START OF MUSIC RECOMMENDATION CSS */
+
+/* header for music recommendation */
+#music-recommendation-header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#music-rec-header-form-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+
+
+/* form for music recommendation search */
+#music-recommendation-form {
+    color: white;
+}
+
+/* input for searching songs for music recommendations */
+#searchSongs {
+    background-color: rgb(24, 24, 24);
+    color: white;
+    width: 500px;
+}
+
+#rec-searchbar {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#rec-modal-header, #rec-modal-body {
+    background-color: rgb(40, 40, 40);
+    color: white
+}
+
+/* table for search results */
+#rec-search-table {
+    color: white;
+}
+
+#songs-for-rec-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+#song-rec-results-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+#rec-results-header {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: nowrap; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 5px 5px 5px 5px;
+}
+
+/* header for song used for recommendation */
+#rec-songs {
+    color: white;
+}
+
+/* table for songs to be used for recommendation */
+#songs-for-rec-table {
+    color: white;
+}
+
+/* table for results of song recommendation */
+#song-rec-results-table {
+    color: white;
+}
+
+/* modal for creating playlist details */
+#playlist-details-modal-header, #playlist-details-modal-body, #playlist-details-modal-footer {
+    background-color: rgb(40, 40, 40);
+    color: white
+}
+
+/* form for creating playlist details */
+#playlist-details-form {
+    color: white;
+}
+
+/* inputs for creating playlist details */
+#name, #description {
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+
+/* modal for songs to be added to new playlist */
+#playlist-songs-modal-header, #playlist-songs-modal-body, #playlist-songs-modal-footer {
+    background-color: rgb(40, 40, 40);
+    color: white
+}
+
+/* table for songs to be added to new playlist */
+#playlist-songs-table {
+    color: white;
+}
+
+#playlist-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* #root {
+    min-height: 765px;
+} */

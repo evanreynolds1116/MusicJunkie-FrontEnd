@@ -1,0 +1,51 @@
+/* images for profile picture and album */
+#card-img {
+    width: 298px;
+    height: 298px;
+}
+
+/* cards for spotify user and top rated album */
+.card {
+    border: 3px solid black;
+    width: 300px;
+    height: 600px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: white;
+}
+
+.card-body {
+    background-color: rgb(40, 40, 40);
+}
+
+#recently-played {
+    color: white;
+}
+
+/* flex container for div with spotify user and top rated album cards */
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* flex container for div with spotify recently listened to tracks */
+#container-tracks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* each individual recently listened to track */
+#container-songs {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#recently-played {
+    margin-left: 80px;
+}

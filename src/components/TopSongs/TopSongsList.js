@@ -13,9 +13,9 @@ const TopSongsList = (props) => {
       setShortTermSongs(allSongs);
       console.log(allSongs);
       //   const songURIS = allSongs.map(object => object.uri)
-    //   const songURIS = allSongs[0].external_urls.spotify;
-    //   console.log(songURIS);
-    //   setPlaySong({ uri: songURIS });
+      //   const songURIS = allSongs[0].external_urls.spotify;
+      //   console.log(songURIS);
+      //   setPlaySong({ uri: songURIS });
     });
     TopSongsFetch.mediumTerm().then((object) => {
       const allSongs = object.items;
@@ -33,7 +33,7 @@ const TopSongsList = (props) => {
 
   return (
     <>
-      <div>
+      <div id="top-songs-header">
         <h1>Top Songs</h1>
       </div>
       <div>
@@ -50,33 +50,38 @@ const TopSongsList = (props) => {
           <p></p>
         )} */}
       </div>
-      <div>
-        <h2>4 Weeks</h2>
-        <Table>
+      <div id="top-songs-short">
+        <div id="top-songs-short-header">
+          <h2 class="top-songs-timeframe">4 Weeks</h2>
+        </div>
+        <div id="container-top-tracks">
+          {shortTermSongs.map((object) => (
+            <div id="container-top-songs">
+              <iframe
+                src={`https://open.spotify.com/embed/track/${object.id}`}
+                width="240"
+                height="320"
+                frameborder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+                title="Spotify"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+        {/* <Table id="top-songs-table-short">
           <thead>
             <tr>
-              <th>Album</th>
+              <th></th>
               <th>Song</th>
               <th>Artist</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             {shortTermSongs.map((object) => (
               <tr key={object.id}>
                 <td>
-                  <img
-                    src={object.album.images[0].url}
-                    width="100px"
-                    height="100px"
-                    alt="album"
-                  />
-                </td>
-                <td>{object.name}</td>
-                <td>{object.artists[0].name}</td>
-                <td>
-                  {/* <Button color="primary" onClick={() => test(object.uri)}>Listen</Button> */}
-                  <iframe
+                <iframe
                     src={`https://open.spotify.com/embed/track/${object.id}`}
                     width="300"
                     height="380"
@@ -86,37 +91,44 @@ const TopSongsList = (props) => {
                     title="Spotify"
                    ></iframe>
                 </td>
+                <td>{object.name}</td>
+                <td>{object.artists[0].name}</td>
               </tr>
             ))}
           </tbody>
-        </Table>
+        </Table> */}
       </div>
-      <div>
-        <h2>6 months</h2>
-        <Table>
+      <div id="top-songs-medium">
+        <div id="top-songs-medium-header">
+          <h2 class="top-songs-timeframe">6 Months</h2>
+        </div>
+        <div id="container-top-tracks">
+          {mediumTermSongs.map((object) => (
+            <div id="container-top-songs">
+              <iframe
+                src={`https://open.spotify.com/embed/track/${object.id}`}
+                width="240"
+                height="320"
+                frameborder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+                title="Spotify"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+        {/* <Table id="top-songs-table-medium">
           <thead>
             <tr>
-              <th>Album</th>
+              <th></th>
               <th>Song</th>
               <th>Artist</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             {mediumTermSongs.map((object) => (
               <tr key={object.id}>
                 <td>
-                  <img
-                    src={object.album.images[0].url}
-                    width="100px"
-                    height="100px"
-                    alt="album"
-                  />
-                </td>
-                <td>{object.name}</td>
-                <td>{object.artists[0].name}</td>
-                <td>
-                  {/* <Button color="primary" onClick={() => test(object.uri)}>Listen</Button> */}
                   <iframe
                     src={`https://open.spotify.com/embed/track/${object.id}`}
                     width="300"
@@ -127,37 +139,44 @@ const TopSongsList = (props) => {
                     title="Spotify"
                    ></iframe>
                 </td>
+                <td>{object.name}</td>
+                <td>{object.artists[0].name}</td>
               </tr>
             ))}
           </tbody>
-        </Table>
+        </Table> */}
       </div>
-      <div>
-          <h2>2-3 years</h2>
-          <Table>
+      <div id="top-songs-long">
+        <div id="top-songs-long-header">
+          <h2 class="top-songs-timeframe">2-3 Years</h2>
+        </div>
+        <div id="container-top-tracks">
+          {longTermSongs.map((object) => (
+            <div id="container-top-songs">
+              <iframe
+                src={`https://open.spotify.com/embed/track/${object.id}`}
+                width="240"
+                height="320"
+                frameborder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+                title="Spotify"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+        {/* <Table id="top-songs-table-long">
           <thead>
             <tr>
-              <th>Album</th>
+              <th></th>
               <th>Song</th>
               <th>Artist</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             {longTermSongs.map((object) => (
               <tr key={object.id}>
                 <td>
-                  <img
-                    src={object.album.images[0].url}
-                    width="100px"
-                    height="100px"
-                    alt="album"
-                  />
-                </td>
-                <td>{object.name}</td>
-                <td>{object.artists[0].name}</td>
-                <td>
-                  {/* <Button color="primary" onClick={() => test(object.uri)}>Listen</Button> */}
                   <iframe
                     src={`https://open.spotify.com/embed/track/${object.id}`}
                     width="300"
@@ -168,10 +187,12 @@ const TopSongsList = (props) => {
                     title="Spotify"
                    ></iframe>
                 </td>
+                <td>{object.name}</td>
+                <td>{object.artists[0].name}</td>
               </tr>
             ))}
           </tbody>
-        </Table>
+        </Table> */}
       </div>
     </>
   );

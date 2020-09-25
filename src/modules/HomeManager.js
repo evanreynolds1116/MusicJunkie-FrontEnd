@@ -11,7 +11,7 @@ export default {
   },
   getRecentlyPlayedTracks() {
     return fetch(
-      "https://api.spotify.com/v1/me/player/recently-played?type=track&limit=10&after=1484811043508",
+      "https://api.spotify.com/v1/me/player/recently-played?type=track&limit=16&after=1484811043508",
       {
         method: "GET",
         headers: {
