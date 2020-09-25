@@ -80,10 +80,10 @@ const FavoriteAlbumsList = (props) => {
 
   return (
     <>
-      <div>
+      <div id="favorite-albums-header">
         <h1>Favorite Albums</h1>
         <Button
-          color="primary"
+          color="success"
           onClick={() => {
             props.history.push("/new-album");
           }}
@@ -91,11 +91,12 @@ const FavoriteAlbumsList = (props) => {
           Add New Album
         </Button>
       </div>
-      <div>
-        <Table>
+      <div id="albums-container">
+        <Table id="favorite-albums-table">
           <thead>
             <tr>
               <th>Album Artwork</th>
+              <th></th>
               <th>Album</th>
               <th>Artist</th>
               <th>Rating</th>
@@ -106,12 +107,23 @@ const FavoriteAlbumsList = (props) => {
             {albums.map((album) => (
               <tr key={album.id}>
                 <td>
-                  <img
+                <img
                     src={album.album_image}
-                    width="100px"
-                    height="100px"
+                    width="380px"
+                    height="380px"
                     alt="artist"
                   />
+                </td>
+                <td>
+                <iframe
+                    src={`https://open.spotify.com/embed/album/${album.album_id}`}
+                    width="300"
+                    height="380"
+                    frameborder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                    title="Spotify"
+                   ></iframe>
                 </td>
                 <td>{album.album_name}</td>
                 <td>{album.album_artist}</td>
@@ -130,8 +142,8 @@ const FavoriteAlbumsList = (props) => {
               </tr>
             ))}
                 <Modal isOpen={modal} toggle={toggle}>
-                  <ModalHeader toggle={toggle}>Edit Rating for: {editedAlbum.album_name}</ModalHeader>
-                  <ModalBody>
+                  <ModalHeader id="edit-album-modal-header" toggle={toggle}>Edit Rating for: {editedAlbum.album_name}</ModalHeader>
+                  <ModalBody id="edit-album-modal-body">
                     <Form>
                       <FormGroup>
                         <Label htmlFor="album_name">Album Title</Label>
@@ -177,8 +189,8 @@ const FavoriteAlbumsList = (props) => {
                       </FormGroup>
                     </Form>
                   </ModalBody>
-                  <ModalFooter>
-                    <Button onClick={() => handleUpdate(editedAlbum)}>+ Add</Button>
+                  <ModalFooter id="edit-album-modal-footer">
+                    <Button color="success" onClick={() => handleUpdate(editedAlbum)}>Update</Button>
                   </ModalFooter>
                 </Modal>
           </tbody>

@@ -27,7 +27,7 @@ export default {
   },
   getRecommendationResults(songId) {
     return fetch(
-      `https://api.spotify.com/v1/recommendations?market=US&seed_tracks=${songId}&min_energy=0.4&min_popularity=50`,
+      `https://api.spotify.com/v1/recommendations?market=US&seed_tracks=${songId}&min_energy=0.4&min_popularity=30`,
       {
         method: "GET",
         headers: {
